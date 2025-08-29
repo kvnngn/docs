@@ -15,11 +15,7 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": [
-              "index",
-              "getting-started",
-              "profile-setup"
-            ]
+            "pages": ["index", "getting-started", "profile-setup"]
           },
           {
             "group": "Finding Players",
@@ -31,19 +27,11 @@
           },
           {
             "group": "Communication",
-            "pages": [
-              "messaging",
-              "connections",
-              "notifications"
-            ]
+            "pages": ["messaging", "connections", "notifications"]
           },
           {
             "group": "Safety & Community",
-            "pages": [
-              "community-guidelines",
-              "safety-features",
-              "reporting"
-            ]
+            "pages": ["community-guidelines", "safety-features", "reporting"]
           }
         ]
       },
@@ -73,7 +61,7 @@
       "anchors": [
         {
           "anchor": "Sign Up",
-          "href": "https://matchandplay.com/signup",
+          "href": "https://matchandplay.io/signup",
           "icon": "user-plus"
         },
         {
@@ -83,7 +71,7 @@
         },
         {
           "anchor": "Support",
-          "href": "mailto:support@matchandplay.com",
+          "href": "mailto:support@matchandplay.io",
           "icon": "life-ring"
         }
       ]
@@ -97,26 +85,26 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:support@matchandplay.com"
+        "href": "mailto:support@matchandplay.io"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Launch App",
-      "href": "https://app.matchandplay.com"
+      "href": "https://app.matchandplay.io"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
