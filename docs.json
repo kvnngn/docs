@@ -1,68 +1,69 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Match & Play",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#8B5CF6",
+    "light": "#A78BFA",
+    "dark": "#7C3AED"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "User Guide",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "getting-started",
+              "profile-setup"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Finding Players",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "player-discovery",
+              "gaming-availability",
+              "matching-preferences"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Communication",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "messaging",
+              "connections",
+              "notifications"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Safety & Community",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "community-guidelines",
+              "safety-features",
+              "reporting"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Features",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Gaming Passport",
             "pages": [
-              "api-reference/introduction"
+              "features/gaming-passport",
+              "features/game-library",
+              "features/availability-system"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Discovery Tools",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "features/smart-matching",
+              "features/trending-games",
+              "features/recommendations"
             ]
           }
         ]
@@ -71,19 +72,19 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Sign Up",
+          "href": "https://matchandplay.com/signup",
+          "icon": "user-plus"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "anchor": "Discord",
+          "href": "https://discord.gg/matchandplay",
+          "icon": "discord"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Support",
+          "href": "mailto:support@matchandplay.com",
+          "icon": "life-ring"
         }
       ]
     }
@@ -96,13 +97,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@matchandplay.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Launch App",
+      "href": "https://app.matchandplay.com"
     }
   },
   "contextual": {
@@ -119,9 +120,9 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/matchandplay",
+      "discord": "https://discord.gg/matchandplay",
+      "instagram": "https://instagram.com/matchandplay"
     }
   }
 }
