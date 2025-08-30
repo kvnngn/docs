@@ -19,11 +19,7 @@
           },
           {
             "group": "Finding Players",
-            "pages": [
-              "player-discovery",
-              "gaming-availability",
-              "matching-preferences"
-            ]
+            "pages": ["player-discovery", "gaming-availability", "matching-preferences"]
           },
           {
             "group": "Communication",
@@ -91,20 +87,11 @@
     "primary": {
       "type": "button",
       "label": "Launch App",
-      "href": "https://app.matchandplay.io"
+      "href": "https://matchandplay.io"
     }
   },
   "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
+    "options": ["copy", "view", "chatgpt", "claude", "perplexity", "mcp", "cursor", "vscode"]
   },
   "footer": {
     "socials": {
