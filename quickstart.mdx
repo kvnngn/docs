@@ -1,80 +1,97 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: "Quick Start"
+description: "Get up and running with BETiq in minutes"
 ---
 
-## Get started in three steps
+## Welcome to BETiq
 
-Get your documentation site running locally and make your first customization.
+This guide will help you get started with BETiq quickly. Follow these steps to set up your environment and run your first data analysis.
 
-### Step 1: Set up your local environment
+## Prerequisites
 
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 2: Deploy your changes
-
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 3: Go live
-
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
+Before you begin, ensure you have:
 
 <CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
+  <Card title="Access Credentials" icon="key">
+    Valid L'Oréal credentials and BETiq access permissions
+  </Card>
+  <Card title="Network Access" icon="network-wired">
+    Connection to L'Oréal's internal network or VPN
+  </Card>
 </CardGroup>
 
+## Step 1: Environment Setup
+
+<AccordionGroup>
+  <Accordion icon="user-check" title="Authentication">
+    1. Contact your system administrator to obtain BETiq credentials
+    2. Ensure your account has the appropriate permissions
+    3. Test your credentials by accessing the BETiq platform
+  </Accordion>
+  <Accordion icon="globe" title="Access BETiq Platform">
+    1. Navigate to the BETiq platform URL (contact your admin for the specific URL)
+    2. Log in using your L'Oréal credentials
+    3. Verify you can see the main dashboard
+    
+    <Tip>Bookmark the platform URL for easy access</Tip>
+  </Accordion>
+</AccordionGroup>
+
+## Step 2: Your First Data Query
+
+<AccordionGroup>
+  <Accordion icon="database" title="Connect to Data Sources">
+    1. Navigate to the **Data Sources** section
+    2. Select from available pre-configured data sources
+    3. Test the connection to ensure data access
+  </Accordion>
+  <Accordion icon="chart-line" title="Create Your First Dashboard">
+    1. Go to **Dashboards** → **New Dashboard**
+    2. Select a data source from Step 1
+    3. Choose visualization type (chart, table, etc.)
+    4. Configure your metrics and dimensions
+    5. Save your dashboard
+    
+    <Tip>Start with simple visualizations and build complexity gradually</Tip>
+  </Accordion>
+</AccordionGroup>
+
+## Step 3: Explore Advanced Features
+
+<Accordion icon="rocket" title="Next Steps">
+  1. Explore the **Analytics** section for advanced analysis tools
+  2. Set up automated reports for regular insights
+  3. Configure alerts for key metrics
+  4. Share your dashboards with team members
+</Accordion>
+
+## Quick Actions
+
+Now that you have BETiq set up, explore these key capabilities:
+
+<CardGroup cols={2}>
+  <Card title="Data Processing" icon="gear" href="/features/data-processing">
+    Learn about ETL pipelines and data transformation
+  </Card>
+  <Card title="Analytics" icon="calculator" href="/features/analytics">
+    Discover advanced analytics and ML capabilities
+  </Card>
+  <Card title="API Integration" icon="code" href="/api-reference/authentication">
+    Integrate BETiq with your applications
+  </Card>
+  <Card title="Configuration" icon="wrench" href="/configuration/environment">
+    Customize BETiq for your specific needs
+  </Card>
+</CardGroup>
+
+## Getting Help
+
 <Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
+  **Need assistance?** Contact the BETiq support team at [support@betiq.loreal.com](mailto:support@betiq.loreal.com) or reach out to your system administrator.
 </Note>
+
+## What's Next?
+
+- **Architecture**: Understand [how BETiq works](/architecture)
+- **Installation**: Set up [local development environment](/installation)
+- **Features**: Explore [core capabilities](/features/overview) in detail

@@ -1,0 +1,113 @@
+---
+title: 'API Authentication'
+description: 'Authentication guide for BETiq API access'
+---
+
+## Overview
+
+BETiq provides a RESTful API that allows you to programmatically access and manipulate data, create dashboards, and manage analytics workflows. All API endpoints require proper authentication.
+
+## Authentication Methods
+
+BETiq supports multiple authentication methods to ensure secure access to your data and resources.
+
+### Bearer Token Authentication
+
+The primary authentication method uses Bearer tokens for API access.
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_TOKEN" \
+     -H "Content-Type: application/json" \
+     https://api.betiq.loreal.com/v1/data
+```
+
+### API Key Authentication
+
+For service-to-service communication, you can use API keys in the request header.
+
+```bash
+curl -H "X-API-Key: YOUR_API_KEY" \
+     -H "Content-Type: application/json" \
+     https://api.betiq.loreal.com/v1/analytics
+```
+
+## Getting Your Credentials
+
+<Steps>
+  <Step title="Contact Administrator">
+    Reach out to your BETiq system administrator to request API access credentials.
+  </Step>
+  <Step title="Specify Permissions">
+    Define the specific resources and operations you need access to (read, write, admin).
+  </Step>
+  <Step title="Receive Credentials">
+    You'll receive your API token or key along with usage guidelines.
+  </Step>
+</Steps>
+
+## Authentication Headers
+
+Include the appropriate authentication header in all API requests:
+
+<CodeGroup>
+```bash Bearer Token
+Authorization: Bearer YOUR_API_TOKEN
+```
+
+```bash API Key
+X-API-Key: YOUR_API_KEY
+```
+
+```bash Content Type (Required)
+Content-Type: application/json
+```
+</CodeGroup>
+
+## Rate Limits
+
+API requests are subject to rate limiting to ensure fair usage:
+
+- **Standard**: 1000 requests per hour
+- **Premium**: 5000 requests per hour
+- **Enterprise**: Custom limits
+
+<Warning>
+  Exceeding rate limits will result in HTTP 429 responses. Implement exponential backoff in your applications.
+</Warning>
+
+## Error Handling
+
+Authentication errors return specific status codes:
+
+| Status Code | Description |
+|-------------|-------------|
+| `401` | Invalid or missing credentials |
+| `403` | Insufficient permissions |
+| `429` | Rate limit exceeded |
+
+## Security Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Token Security" icon="shield-check">
+    Never expose API tokens in client-side code or public repositories
+  </Card>
+  <Card title="Rotation Policy" icon="arrows-rotate">
+    Regularly rotate your API credentials (recommended: every 90 days)
+  </Card>
+  <Card title="Principle of Least Privilege" icon="user-lock">
+    Request only the minimum permissions needed for your use case
+  </Card>
+  <Card title="Secure Transport" icon="lock">
+    Always use HTTPS when making API requests
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<Card
+  title="Explore API Endpoints"
+  icon="code"
+  href="/api-reference/endpoint/get"
+>
+  Start using BETiq APIs with our endpoint documentation
+</Card>

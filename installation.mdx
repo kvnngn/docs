@@ -1,0 +1,222 @@
+---
+title: "Installation"
+description: "Install and set up BETiq in your environment"
+---
+
+## Overview
+
+BETiq can be deployed in various environments to meet your organization's needs. This guide covers installation options and requirements.
+
+## System Requirements
+
+<CardGroup cols={2}>
+  <Card title="Hardware Requirements" icon="server">
+    - CPU: 8+ cores (16+ recommended)
+    - RAM: 16GB minimum (32GB+ recommended)
+    - Storage: 100GB+ available space
+    - Network: 1Gbps connection
+  </Card>
+  <Card title="Software Requirements" icon="code">
+    - Operating System: Linux (Ubuntu 20.04+, RHEL 8+)
+    - Docker: 20.10+ and Docker Compose 2.0+
+    - Database: PostgreSQL 13+ or equivalent
+    - Web Server: Nginx or Apache (for reverse proxy)
+  </Card>
+</CardGroup>
+
+## Installation Options
+
+Choose the installation method that best fits your environment:
+
+### Docker Deployment (Recommended)
+
+The fastest way to get BETiq up and running:
+
+```bash
+# Download BETiq Docker configuration
+git clone https://github.com/loreal/betiq-docker.git
+cd betiq-docker
+
+# Configure environment variables
+cp .env.example .env
+# Edit .env with your specific settings
+
+# Start BETiq services
+docker-compose up -d
+```
+
+<Accordion title="Docker Configuration Details">
+The Docker deployment includes:
+- BETiq application server
+- PostgreSQL database
+- Redis for caching
+- Nginx reverse proxy
+- Monitoring and logging services
+</Accordion>
+
+### Kubernetes Deployment
+
+For production environments requiring scalability:
+
+```yaml
+# Apply BETiq Kubernetes manifests
+kubectl apply -f k8s/namespace.yaml
+kubectl apply -f k8s/configmap.yaml
+kubectl apply -f k8s/secrets.yaml
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+kubectl apply -f k8s/ingress.yaml
+```
+
+### Manual Installation
+
+For custom environments or development setups:
+
+<Steps>
+  <Step title="Install Dependencies">
+    ```bash
+    # Install Python 3.9+
+    sudo apt update
+    sudo apt install python3.9 python3-pip
+    
+    # Install Node.js 16+
+    curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    ```
+  </Step>
+  <Step title="Download BETiq">
+    ```bash
+    # Download from internal repository
+    git clone https://git.loreal.com/betiq/betiq-platform.git
+    cd betiq-platform
+    ```
+  </Step>
+  <Step title="Configure Environment">
+    ```bash
+    # Create virtual environment
+    python3 -m venv venv
+    source venv/bin/activate
+    
+    # Install Python dependencies
+    pip install -r requirements.txt
+    
+    # Install Node.js dependencies
+    npm install
+    ```
+  </Step>
+  <Step title="Database Setup">
+    ```sql
+    -- Create database and user
+    CREATE DATABASE betiq_db;
+    CREATE USER betiq_user WITH ENCRYPTED PASSWORD 'your_password';
+    GRANT ALL PRIVILEGES ON DATABASE betiq_db TO betiq_user;
+    ```
+  </Step>
+</Steps>
+
+## Configuration
+
+### Environment Variables
+
+Create a `.env` file with the following required variables:
+
+```bash
+# Database Configuration
+DATABASE_URL=postgresql://betiq_user:password@localhost:5432/betiq_db
+REDIS_URL=redis://localhost:6379/0
+
+# Application Settings
+SECRET_KEY=your_secret_key_here
+DEBUG=false
+ALLOWED_HOSTS=your-domain.com
+
+# Authentication
+AUTH_METHOD=ldap
+LDAP_SERVER=ldap.loreal.com
+LDAP_BIND_DN=cn=betiq,ou=services,dc=loreal,dc=com
+
+# API Configuration
+API_BASE_URL=https://api.betiq.loreal.com
+API_VERSION=v1
+```
+
+### Initial Setup
+
+Run the initial setup commands:
+
+```bash
+# Apply database migrations
+python manage.py migrate
+
+# Create superuser account
+python manage.py createsuperuser
+
+# Collect static files
+python manage.py collectstatic
+
+# Load initial data (optional)
+python manage.py loaddata fixtures/initial_data.json
+```
+
+## Verification
+
+Verify your installation is working correctly:
+
+<Accordion title="Health Check Commands">
+```bash
+# Check application status
+curl -f http://localhost:8000/health
+
+# Check database connection
+python manage.py dbshell
+
+# Check Redis connection
+redis-cli ping
+
+# Verify API endpoints
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+     http://localhost:8000/api/v1/status
+```
+</Accordion>
+
+## Troubleshooting
+
+Common installation issues and solutions:
+
+<AccordionGroup>
+  <Accordion title="Database Connection Errors">
+    - Verify PostgreSQL is running and accessible
+    - Check database credentials in `.env` file
+    - Ensure database user has proper permissions
+    - Test connection manually: `psql -h localhost -U betiq_user betiq_db`
+  </Accordion>
+  
+  <Accordion title="Permission Errors">
+    - Check file permissions: `chmod +x scripts/*.sh`
+    - Verify user has sudo access for system packages
+    - Ensure Docker user is in docker group: `usermod -aG docker $USER`
+  </Accordion>
+  
+  <Accordion title="Port Conflicts">
+    - Check if ports are already in use: `netstat -tlnp | grep :8000`
+    - Modify port configuration in `docker-compose.yml` or settings
+    - Use different ports for development vs production
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Architecture Overview" icon="sitemap" href="/architecture">
+    Understand BETiq's system architecture
+  </Card>
+  <Card title="Configuration" icon="gear" href="/configuration/environment">
+    Configure BETiq for your environment
+  </Card>
+  <Card title="Quick Start" icon="rocket" href="/quickstart">
+    Start using BETiq immediately
+  </Card>
+  <Card title="Development Setup" icon="code" href="/development/local-setup">
+    Set up development environment
+  </Card>
+</CardGroup>
